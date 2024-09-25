@@ -104,7 +104,42 @@ gruCell = keras.layers.GRU(50, use_cudnn=False)(gruCell, mask=mask)
 outputLayer = keras.layers.Dense(3, activation='softmax')(gruCell)
 model_without_pad = keras.Model(inputs=[InputLayer], outputs=[outputLayer])
 ```
+### 4.Dataset Config
 
+```python
+dataset_base = dataset_base.map(preprocess)  # Applying the preprocessing function
+dataset_base = dataset_base.batch(32)        # Batching with batch size 32
+dataset_base = dataset_base.prefetch(1)      # Prefetching 1 batch to speed up training
+![image](https://github.com/user-attachments/assets/60c0eafb-5872-4681-a760-07e29dd34e2e)
+```
+
+### 5.Deploy Model Using Tensorflow Serving
+```python
+%%bash --bg
+nohup tensorflow_model_server \
+     --rest_api_port=8502 \
+     --model_name=my_mnist_model \
+     --model_base_path="${MODEL_DIR}" >server.log 2>&1
+# tail server.log: Displays the last lines of server.log, showing TensorFlow Serving's output and errors.
+!tail server.log
+```
+##5.Making Predictions Using Tensorflow Serving
+```python
+
+import json
+
+input_data_json = json.dumps({
+    "signature_name": "serving_default", #Preparing the data for submission.
+    "instances": X_new
+})
+
+import requests
+
+SERVER_URL = 'http://localhost:8502/v1/models/my_mnist_model:predict'
+response = requests.post(SERVER_URL, data=input_data_json) #Making the request
+response.raise_for_status()
+response = response.json() #Getting the requisition data
+```
 The model processes sequences of text using embeddings and GRU layers, then classifies the sentiment into three categories.
 
 ## Usage
@@ -131,7 +166,7 @@ The model outputs the sentiment prediction for each input product review:
 - 1: Neutral Sentiment
 - 2: Positive Sentiment
 
-## Embeddings
+## Learned embeddings
 
 ![image](https://github.com/user-attachments/assets/b962af5c-675d-4f31-ae20-b678493d173d)
 
