@@ -42,6 +42,8 @@ This project is designed to perform sentiment analysis on product reviews. It us
 
 ### GRU Layers:
 - Uses GRU (Gated Recurrent Units) layers to capture long-term dependencies in text sequences.
+- ![image](https://github.com/user-attachments/assets/21b0f0f0-cbb0-4d9a-ab91-fcb157a45406)
+
 
 ### Output Layer:
 - A dense layer with softmax activation to classify sentiment into three categories.
