@@ -2,6 +2,9 @@
 
 This project implements a Sentiment Analysis model for product reviews using advanced NLP techniques. The model leverages LSTM, GRU, and Embeddings to predict the sentiment of a given product review as positive, negative, or neutral. The project focuses on preprocessing text data, creating a custom dataset using TFRecord, and building a deep learning architecture with recurrent layers.
 
+![image](https://github.com/user-attachments/assets/5bf9f073-7855-4d21-8244-c3e302685f74)
+
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Features](#features)
