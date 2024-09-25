@@ -131,6 +131,11 @@ The model outputs the sentiment prediction for each input product review:
 - 1: Neutral Sentiment
 - 2: Positive Sentiment
 
+## Embeddings
+
+![image](https://github.com/user-attachments/assets/b962af5c-675d-4f31-ae20-b678493d173d)
+
+
 ## Future Improvements
 
 - **Integration with CNN**: Combining text-based models with convolutional neural networks (CNNs) to enhance the feature extraction process.
