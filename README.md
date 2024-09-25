@@ -110,7 +110,6 @@ model_without_pad = keras.Model(inputs=[InputLayer], outputs=[outputLayer])
 dataset_base = dataset_base.map(preprocess)  # Applying the preprocessing function
 dataset_base = dataset_base.batch(32)        # Batching with batch size 32
 dataset_base = dataset_base.prefetch(1)      # Prefetching 1 batch to speed up training
-![image](https://github.com/user-attachments/assets/60c0eafb-5872-4681-a760-07e29dd34e2e)
 ```
 
 ### 5.Deploy Model Using Tensorflow Serving
@@ -122,8 +121,9 @@ nohup tensorflow_model_server \
      --model_base_path="${MODEL_DIR}" >server.log 2>&1
 # tail server.log: Displays the last lines of server.log, showing TensorFlow Serving's output and errors.
 !tail server.log
+
 ```
-##5.Making Predictions Using Tensorflow Serving
+### 5.Making Predictions Using Tensorflow Serving
 ```python
 
 import json
