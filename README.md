@@ -98,7 +98,7 @@ with tf.io.TFRecordWriter('sentiment_analysis.tfrecords') as f:
 
 - Writes CSV data into a TFRecord file for optimized storage.
 
-### 3. Model Architecture
+### 3. Model Architecture With Masking
 
 ```python
 InputLayer = keras.layers.Input(shape=[None])  # Process sequences of arbitrary size
