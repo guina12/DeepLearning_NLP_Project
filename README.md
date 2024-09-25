@@ -175,6 +175,11 @@ The model outputs the sentiment prediction for each input product review:
 
 ![image](https://github.com/user-attachments/assets/b962af5c-675d-4f31-ae20-b678493d173d)
 
+## Evaluate Metrics
+
+![image](https://github.com/user-attachments/assets/adda4ce4-6780-43dc-9167-bc465f0e4511)
+
+
 
 ## Future Improvements
 
